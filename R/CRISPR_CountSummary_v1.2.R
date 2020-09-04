@@ -24,7 +24,7 @@ outdir <- opt$o
 
 pat <- ".count"
 
-myfiles <- list.files(path=basedir, pattern="^[ACGT].*.count")
+myfiles <- list.files(path=basedir, pattern="^[ACGT].*.count", recursive = TRUE)
 print(myfiles)
 
 # read each file as array element of DT and rename the last 2 cols

@@ -9,8 +9,8 @@ import pandas as pd
 import re
 import csv
 
-INPUT_FILE = '/lab/htdata/10xgenomes/thaliana_TAIR_10/carly/genes.gtf'
-OUTPUT_FILE = '/lab/htdata/10xgenomes/thaliana_TAIR_10/carly/genesmodifiedbysg.gtf'
+INPUT_FILE = '/lab/htdata/10xgenomes/thaliana_TAIR_10/genes.gtf'
+OUTPUT_FILE = '/lab/htdata/10xgenomes/thaliana_TAIR_10/genesmodifiedbysg.gtf'
 
 def add_transcript_feature(input_df):
     transcripts = {}

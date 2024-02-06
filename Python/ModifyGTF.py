@@ -1,9 +1,16 @@
+# Created by Sumeet Gupta to modify GTF to be used for building 10x reference
+# cellranger multi is sensitive to changes in the attribute formating
+# This was done for Arabidopsis gtf file
+
 #!/usr/bin/env python
 # coding: utf-8
 
 import pandas as pd
 import re
 import csv
+
+INPUT_FILE = '/lab/htdata/10xgenomes/thaliana_TAIR_10/carly/genes.gtf'
+OUTPUT_FILE = '/lab/htdata/10xgenomes/thaliana_TAIR_10/carly/genesmodifiedbysg.gtf'
 
 def add_transcript_feature(input_df):
     transcripts = {}
@@ -44,14 +51,13 @@ def add_transcript_feature(input_df):
 
 
 gftfile = pd.read_csv(
-    filepath_or_buffer='/lab/htdata/10xgenomes/thaliana_TAIR_10/carly/genes.gtf', 
+    filepath_or_buffer=INPUT_FILE, 
     sep='\t', 
     header=None,
     names=['seqid', 'source', 'type', 'start', 'end', 'score', 'strand', 'phase', 'attributes'],
     skiprows=[i for i in range(5)])
 
 df_with_transcripts = add_transcript_feature(gftfile)
-
-output_gtf_file = '/lab/htdata/10xgenomes/thaliana_TAIR_10/carly/genesmodifiedbysg.gtf'
-df_with_transcripts.to_csv(output_gtf_file, sep='\t', header=None, index=False, quoting=csv.QUOTE_NONE)
+ 
+df_with_transcripts.to_csv(OUTPUT_FILE, sep='\t', header=None, index=False, quoting=csv.QUOTE_NONE)
 

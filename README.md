@@ -1,4 +1,4 @@
 # Tools
 
-Collection of tools to various tasks
+Collection of tools to do various tasks
 
